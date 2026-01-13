@@ -351,7 +351,7 @@ with tab1:
                     st.subheader("💼 Sales Agent Recommendation")
                     
                     st.markdown(f"""
-                    <div style="background-color: #e8f4f8; padding: 20px; border-left: 5px solid #1f77b4; border-radius: 5px;">
+                    <div style="background-color: #000000; color: #ffffff; padding: 20px; border-left: 5px solid #1f77b4; border-radius: 5px;">
                     <h4 style="margin-top: 0;">Recommended Action:</h4>
                     <p style="font-size: 16px; font-weight: bold;">{action}</p>
                     </div>

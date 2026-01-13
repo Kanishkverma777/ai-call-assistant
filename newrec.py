@@ -65,7 +65,7 @@ class IntentOutput(BaseModel):
 parser = PydanticOutputParser(pydantic_object=IntentOutput)
 # Intent Extractor
 
-llm = ChatOllama(model="mistral", temperature=0)
+llm = ChatOllama(model="tinyllama", temperature=0)
 
 
 
