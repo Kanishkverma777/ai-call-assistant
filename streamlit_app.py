@@ -432,18 +432,7 @@ with tab1:
 
         st.markdown("---")
         st.subheader("Or Record with Mic")
-        record_duration = st.slider(
-            "Recording duration (seconds)",
-            min_value=3,
-            max_value=60,
-            value=10,
-            help="How long to record from your microphone",
-        )
-        record_button = st.button(
-            "RECORD_INPUT", icon=":material/mic:",
-            type="secondary",
-            use_container_width=True,
-        )
+        audio_bytes = st.audio_input("Record Voice Node")
     
     st.markdown("---")
     
@@ -467,13 +456,14 @@ with tab1:
         st.info(" Upload an audio file or select the sample to get started!")
 
     # Process microphone recording
-    if record_button:
+    if audio_bytes is not None:
         try:
-            with st.spinner("Recording from microphone... Please speak now."):
-                mic_audio_path = record_audio(record_duration)
+            with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmp_file:
+                tmp_file.write(audio_bytes.getbuffer())
+                mic_audio_path = tmp_file.name
             analyze_audio_file(mic_audio_path, model_choice, temperature, delete_after=True)
         except Exception as e:
-            st.error(f" Error recording from microphone: {str(e)}")
+            st.error(f" Error analyzing microphone recording: {str(e)}")
 
 # ============================================================================
 # TAB 2: HOW IT WORKS
