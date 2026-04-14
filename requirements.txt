@@ -7,10 +7,9 @@ pydub
 librosa
 pydantic
 pyttsx3
+soundfile
 langchain
 langchain-core
 langchain-community
 langchain-ollama
 streamlit
-
-
